@@ -53,7 +53,7 @@ dotfiles log --oneline --graph -n 10        # or df-log
 # Push changes to your remote repository
 dotfiles push        # or df-push
 
-# View available helper commands in Indonesian
+# View available helper commands & shortcuts
 dotfiles-help        # or df-help
 ```
 

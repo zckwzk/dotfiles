@@ -12,96 +12,96 @@
 Plugins are managed via **TPM (Tmux Plugin Manager)**.
 
 ### 1. `tmux-plugins/tpm` (Tmux Plugin Manager)
-- **Fungsi**: Manajer plugin untuk Tmux. Memungkinkan instalasi, update, dan penghapusan plugin dengan mudah via Git.
-- **Cara Kerja**: Men-clone repositori plugin ke folder `~/.tmux/plugins/` dan memuatnya secara dinamis saat Tmux berjalan.
-- **Shortcut Penting**:
-  | Shortcut | Aksi |
+- **Purpose**: Plugin manager for Tmux. Handles installing, updating, and cleaning plugins via Git.
+- **How it works**: Clones plugin repositories to `~/.tmux/plugins/` and sources them dynamically at runtime.
+- **Key Shortcuts**:
+  | Shortcut | Action |
   | :--- | :--- |
-  | `Ctrl-a` lalu `I` *(Shift + i)* | Mengunduh dan memasang plugin baru yang ditambahkan ke `.tmux.conf` |
-  | `Ctrl-a` lalu `U` *(Shift + u)* | Memperbarui (*update*) seluruh plugin yang terpasang ke versi terbaru |
-  | `Ctrl-a` lalu `Alt + u` | Menghapus folder plugin yang sudah dihapus dari `.tmux.conf` |
+  | `Ctrl-a` then `I` *(Shift + i)* | Fetch and install newly added plugins defined in `.tmux.conf` |
+  | `Ctrl-a` then `U` *(Shift + u)* | Update all installed plugins to their latest versions |
+  | `Ctrl-a` then `Alt + u` | Uninstall and remove plugin folders no longer listed in `.tmux.conf` |
 
 ---
 
 ### 2. `tmux-plugins/tmux-sensible`
-- **Fungsi**: Kumpulan konfigurasi standar universal yang disepakati komunitas Tmux.
-- **Fitur Utama**:
-  - Mengatasi lag input / delay tombol ESC.
-  - Memastikan dukungan karakter UTF-8 dan terminal 256-color.
-  - Mengatur ukuran history buffer yang nyaman.
-  - Menyelaraskan refresh rate status bar.
-- **Cara Penggunaan**: Berjalan otomatis di latar belakang tanpa tombol khusus.
+- **Purpose**: A universal baseline of sensible options agreed upon by the Tmux community.
+- **Key Features**:
+  - Eliminates ESC key delay (essential for responsive Neovim usage).
+  - Ensures proper UTF-8 and 256-color terminal support.
+  - Configures comfortable scrollback buffer sizes and command history limits.
+  - Aligns status bar refresh rates.
+- **How to Use**: Operates automatically in the background without needing any manual triggers.
 
 ---
 
 ### 3. `tmux-plugins/tmux-yank`
-- **Fungsi**: Integrasi clipboard Tmux langsung ke clipboard sistem operasi (didukung oleh `wl-copy` di Wayland dan `xsel` di X11).
-- **Keunggulan**: Teks yang disalin di dalam Tmux bisa langsung di-paste (`Ctrl+v`) ke aplikasi desktop lain (browser, IDE, dokumen).
-- **Cara Penggunaan**:
-  1. Masuk ke mode salin: Tekan `Ctrl-a` lalu `[` (atau drag kursor mouse di panel teks).
-  2. Mulai seleksi teks (jika memakai keyboard): Tekan `v`.
-  3. Salin ke clipboard sistem: Tekan `y`.
-  4. Mode baris / blok: Tekan `V` untuk seleksi satu baris penuh, atau `Ctrl-v` untuk blok kolom.
+- **Purpose**: Seamless integration between Tmux copy mode and the system clipboard (Wayland via `wl-copy`, X11 via `xsel`).
+- **Benefit**: Text copied within Tmux can immediately be pasted into any external desktop application (browser, IDE, text documents) using `Ctrl+v`.
+- **How to Use**:
+  1. Enter copy mode: Press `Ctrl-a` then `[` (or click and drag with your mouse).
+  2. Start text selection (keyboard): Press `v`.
+  3. Copy to system clipboard: Press `y`.
+  4. Line or block selection: Press `V` for full line selection, or `Ctrl-v` for rectangular block selection.
 
 ---
 
 ### 4. `tmux-plugins/tmux-resurrect`
-- **Fungsi**: Menyimpan dan memulihkan seluruh sesi Tmux ketika laptop dimatikan, di-reboot, atau Tmux ditutup.
-- **Apa saja yang dipulihkan?**:
-  - Semua nama sesi, jendela (windows), dan pembagian panel (panes).
-  - Susunan layout panel (split horizontal / vertikal).
-  - Direktori kerja aktif masing-masing panel (`current working directory`).
-  - Riwayat teks di dalam panel (`@resurrect-capture-pane-contents 'on'`).
-  - Sesi kerja editor Neovim (`@resurrect-strategy-nvim 'session'`).
-- **Cara Penggunaan**:
-  | Shortcut | Aksi |
+- **Purpose**: Saves and restores your complete Tmux environment across system reboots, terminal restarts, or unexpected disconnects.
+- **What is Restored**:
+  - All session names, windows, and pane splits.
+  - Window layout arrangements (horizontal / vertical splits).
+  - Active working directories for each pane (`current working directory`).
+  - Terminal text history in each pane (`@resurrect-capture-pane-contents 'on'`).
+  - Active Neovim editor sessions (`@resurrect-strategy-nvim 'session'`).
+- **How to Use**:
+  | Shortcut | Action |
   | :--- | :--- |
-  | `Ctrl-a` lalu `Ctrl-s` | Simpan sesi Tmux secara manual *(muncul status "Tmux environment saved!")* |
-  | `Ctrl-a` lalu `Ctrl-r` | Pulihkan kembali sesi yang tersimpan *(muncul status "Tmux restore complete!")* |
+  | `Ctrl-a` then `Ctrl-s` | Manually save the current Tmux environment *(displays "Tmux environment saved!")* |
+  | `Ctrl-a` then `Ctrl-r` | Restore the saved Tmux environment *(displays "Tmux restore complete!")* |
 
 ---
 
 ### 5. `tmux-plugins/tmux-continuum`
-- **Fungsi**: Otomasi penuh dari `tmux-resurrect` agar Anda tidak perlu mengingat untuk menekan tombol simpan manual.
-- **Pengaturan Aktif**:
-  - `@continuum-save-interval '15'`: Menyimpan kondisi sesi secara otomatis setiap **15 menit**.
-  - `@continuum-restore 'on'`: Secara otomatis memulihkan sesi terakhir saat Tmux server pertama kali dijalankan setelah komputer restart.
-- **Cara Penggunaan**: 100% otomatis tanpa perlu intervensi pengguna.
+- **Purpose**: Full automation on top of `tmux-resurrect` so you never have to remember to manually save.
+- **Active Settings**:
+  - `@continuum-save-interval '15'`: Automatically saves your entire Tmux state every **15 minutes**.
+  - `@continuum-restore 'on'`: Automatically restores your last saved session whenever the Tmux server starts up after reboot.
+- **How to Use**: 100% automated; runs seamlessly in the background.
 
 ---
 
-## ⌨️ Daftar Lengkap Shortcut Tmux Zakaniwa
+## ⌨️ Full Shortcut Reference
 
-### 🧭 Navigasi & Jendela / Panel
+### 🧭 Navigation, Windows & Panes
 
-| Shortcut | Aksi |
+| Shortcut | Action |
 | :--- | :--- |
-| `Ctrl-a` lalu `\|` atau `\` | Split panel **horizontal** (membuka panel di sebelah kanan, di folder yang sama) |
-| `Ctrl-a` lalu `-` atau `_` | Split panel **vertikal** (membuka panel di sebelah bawah, di folder yang sama) |
-| `Ctrl-a` lalu `c` | Buat **jendela baru** (di folder yang sama) |
-| `Ctrl-a` lalu `h` | Pindah ke panel **kiri** (Vim-style) |
-| `Ctrl-a` lalu `j` | Pindah ke panel **bawah** (Vim-style) |
-| `Ctrl-a` lalu `k` | Pindah ke panel **atas** (Vim-style) |
-| `Ctrl-a` lalu `l` | Pindah ke panel **kanan** (Vim-style) |
-| `Ctrl-a` lalu `H / J / K / L` | Mengubah ukuran (*resize*) panel ke kiri / bawah / atas / kanan |
-| `Ctrl-a` lalu `z` | Zoom / Maximize panel aktif (tekan lagi untuk mengembalikan) |
-| `Ctrl-a` lalu `x` | Tutup panel aktif saat ini (dengan konfirmasi y/n) |
-| `Ctrl-a` lalu `1 .. 9` | Pindah cepat ke nomor jendela tertentu |
-| `Ctrl-a` lalu `r` | **Reload konfigurasi** `~/.tmux.conf` secara instan tanpa restart |
+| `Ctrl-a` then `\|` or `\` | Split pane **horizontally** (opens pane to the right, preserving current directory) |
+| `Ctrl-a` then `-` or `_` | Split pane **vertically** (opens pane below, preserving current directory) |
+| `Ctrl-a` then `c` | Create a **new window** (preserving current directory) |
+| `Ctrl-a` then `h` | Move to pane on the **left** (Vim-style) |
+| `Ctrl-a` then `j` | Move to pane **below** (Vim-style) |
+| `Ctrl-a` then `k` | Move to pane **above** (Vim-style) |
+| `Ctrl-a` then `l` | Move to pane on the **right** (Vim-style) |
+| `Ctrl-a` then `H / J / K / L` | Resize pane left / down / up / right (repeatable) |
+| `Ctrl-a` then `z` | Zoom / maximize active pane (toggle on/off) |
+| `Ctrl-a` then `x` | Close active pane (prompts for confirmation y/n) |
+| `Ctrl-a` then `1 .. 9` | Quickly jump to window number |
+| `Ctrl-a` then `r` | **Reload** `~/.tmux.conf` configuration instantly without restarting |
 
 ### 🖱️ Mouse Support
-- **Klik panel**: Mengaktifkan panel.
-- **Drag pembatas panel**: Mengubah ukuran split panel secara presisi.
-- **Scroll roda mouse**: Otomatis masuk ke mode scrollback / copy mode untuk melihat log sebelumnya.
-- **Drag seleksi mouse**: Otomatis menyeleksi dan menyalin teks ke clipboard sistem.
+- **Click pane**: Focus and activate pane.
+- **Drag pane border**: Resize pane split with precision.
+- **Scroll wheel**: Automatically enters scrollback / copy mode to inspect previous logs.
+- **Mouse drag selection**: Automatically highlights and copies text to the system clipboard.
 
 ---
 
-## 🚀 Bootstrap Otomatis di Mesin Baru
+## 🚀 Automatic Bootstrap on New Machines
 
-Konfigurasi `.tmux.conf` sudah dilengkapi logika *auto-bootstrap*:
+The `.tmux.conf` file includes automatic bootstrap logic:
 ```tmux
 if "test ! -d ~/.tmux/plugins/tpm" \
    "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 ```
-Saat dotfiles dicheckout ke laptop baru dan Tmux pertama kali dibuka, TPM dan semua plugin di atas akan otomatis diunduh dan dipasang secara mandiri.
+When your dotfiles are checked out on a fresh machine and Tmux is launched for the first time, TPM and all plugins will be downloaded and installed automatically.

@@ -1,11 +1,11 @@
 # 💻 Alacritty Terminal Configuration Guide
 
 - **Config file**: `~/.config/alacritty/alacritty.toml`
-- **Format**: TOML format (standar modern konfigurasi Alacritty v0.13+)
+- **Format**: TOML format (modern configuration standard for Alacritty v0.13+)
 
 ---
 
-## ⚙️ Pengaturan Saat Ini
+## ⚙️ Active Settings
 
 ```toml
 [window]
@@ -16,16 +16,16 @@ normal = { family = "JetBrainsMono Nerd Font" }
 size = 10.0
 ```
 
-- **`startup_mode = "Maximized"`**: Alacritty langsung terbuka dalam ukuran layar penuh tanpa border mengganggu.
-- **`family = "JetBrainsMono Nerd Font"`**: Menggunakan JetBrains Mono dengan patch Nerd Font untuk mendukung simbol/glif ikon di Neovim, Tmux, dan prompt shell.
-- **`size = 10.0`**: Ukuran teks ideal untuk layar laptop.
+- **`startup_mode = "Maximized"`**: Launches Alacritty maximized for a clean, distraction-free terminal workspace.
+- **`family = "JetBrainsMono Nerd Font"`**: Uses JetBrains Mono patched with Nerd Font glyphs, providing seamless icon rendering across Neovim, Tmux, and shell statuslines.
+- **`size = 10.0`**: Balanced font size calibrated for laptop displays.
 
 ---
 
-## 🎨 Tips Kustomisasi Tambahan
+## 🎨 Customization Tips
 
-### 1. Mengatur Transparansi (Opacity) Jendela
-Jika Anda ingin latar belakang terminal sedikit tembus pandang (*semi-transparent*):
+### 1. Window Opacity / Transparency
+To enable a subtle semi-transparent background:
 ```toml
 [window]
 startup_mode = "Maximized"
@@ -33,16 +33,16 @@ opacity = 0.95
 blur = true
 ```
 
-### 2. Mengatur Padding (Jarak Margin Tepi)
-Untuk memberi ruang nafas di pinggiran teks:
+### 2. Padding (Inner Margins)
+To add breathable padding around the terminal edges:
 ```toml
 [window.padding]
 x = 8
 y = 8
 ```
 
-### 3. Skema Warna Catppuccin Mocha (Contoh Tema)
-Untuk menyelaraskan warna Alacritty dengan tema Tmux Catppuccin Mocha:
+### 3. Catppuccin Mocha Color Scheme Example
+To synchronize Alacritty colors with the Catppuccin Mocha Tmux theme:
 ```toml
 [colors.primary]
 background = "#1e1e2e"
@@ -65,5 +65,5 @@ white = "#bac2de"
 
 ---
 
-## 🔄 Menerapkan Perubahan
-Alacritty mendukung *live-reload*. Begitu berkas `alacritty.toml` disimpan, perubahan font atau warna akan langsung diterapkan secara instan tanpa perlu menutup terminal.
+## 🔄 Applying Changes
+Alacritty supports live configuration reloading. Once `alacritty.toml` is saved, modifications to fonts, colors, or opacity are applied instantly without restarting the terminal.

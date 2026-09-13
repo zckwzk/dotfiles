@@ -1,16 +1,16 @@
 # 🐚 Bash & Dotfiles Helpers Guide
 
 - **Config files**:
-  - `~/.bashrc` - Skrip inisialisasi shell interaktif utama
-  - `~/.bash_profile` - Skrip login shell
-  - `~/.bashrc.d/dotfiles.bash` - Helper fungsi & alias repositori bare Git
-- **Folder modular**: `~/.bashrc.d/`
+  - `~/.bashrc` - Primary interactive shell initialization script
+  - `~/.bash_profile` - Login shell startup script
+  - `~/.bashrc.d/dotfiles.bash` - Git Bare repository helper functions & aliases
+- **Modular directory**: `~/.bashrc.d/`
 
 ---
 
-## 🏗️ Arsitektur Modular `.bashrc.d/`
+## 🏗️ Modular Architecture (`.bashrc.d/`)
 
-Berkas `.bashrc` Anda dikonfigurasi untuk memuat seluruh berkas skrip yang berada di dalam `~/.bashrc.d/*.bash` secara otomatis saat terminal dibuka:
+Your `.bashrc` is structured to automatically source all `*.bash` scripts in `~/.bashrc.d/` whenever an interactive shell starts:
 
 ```bash
 if [ -d ~/.bashrc.d ]; then
@@ -22,66 +22,66 @@ if [ -d ~/.bashrc.d ]; then
 fi
 ```
 
-### Keuntungan:
-1. **Bersih & Rapi**: Anda tidak perlu menumpuk ratusan baris alias di satu file `.bashrc`.
-2. **Mudah Dikelola**: Setiap topik (misalnya: `dotfiles.bash`, `waydroid.bash`, alias project kerjaan, dll.) dipisahkan dalam file masing-masing.
+### Advantages:
+1. **Clean & Organized**: No monolithic `.bashrc` cluttered with hundreds of disparate aliases.
+2. **Modular Maintenance**: Individual tools and workflows (e.g. `dotfiles.bash`, `waydroid.bash`, work scripts) live in separate, self-contained files.
 
 ---
 
-## ⚡ Helper Git Bare Repository (`dotfiles.bash`)
+## ⚡ Git Bare Repository Helpers (`dotfiles.bash`)
 
-Untuk mengelola file dotfiles yang tersebar di `$HOME` tanpa membuat symlink rumit, helper ini menyediakan perintah `dotfiles` dan shortcut cepat.
+To manage dotfiles across `$HOME` without complex symlink managers, this helper provides the `dotfiles` command and fast shortcuts.
 
-### 1. Perintah Utama
-- **`dotfiles`**: Wrapper resmi untuk `/usr/bin/git --git-dir=$HOME/Documents/dotfiles --work-tree=$HOME`. Menerima seluruh argumen standar Git (`status`, `add`, `commit`, `branch`, `diff`, `log`, dll.).
-- **Auto-completion**: Terintegrasi langsung dengan bash-completion Git bawaan sistem Fedora. Anda bisa menekan `Tab` setelah mengetik `dotfiles` untuk melengkapi perintah Git (contoh: `dotfiles sta<TAB>` menjadi `dotfiles status`).
+### 1. Primary Command
+- **`dotfiles`**: Official wrapper for `/usr/bin/git --git-dir=$HOME/Documents/dotfiles --work-tree=$HOME`. Supports all standard Git arguments (`status`, `add`, `commit`, `branch`, `diff`, `log`, `push`, etc.).
+- **Auto-completion**: Integrates directly with Fedora's system Git bash-completion. You can press `Tab` after typing `dotfiles` to complete commands and branch names (e.g. `dotfiles sta<TAB>` completes to `dotfiles status`).
 
-### 2. Shortcut Cepat (Daftar Lengkap)
+### 2. Fast Shortcut Reference
 
-| Alias | Perintah Asli | Deskripsi |
+| Shortcut | Expanded Command | Description |
 | :--- | :--- | :--- |
-| `df-status` | `dotfiles status` | Cek status berkas konfigurasi yang telah diubah atau distage |
-| `df-diff` | `dotfiles diff` | Melihat baris perubahan kode/konfigurasi yang belum dicommit |
-| `df-log` | `dotfiles log --oneline --graph --decorate -n 15` | Melihat riwayat visual commit dotfiles Anda |
-| `df-add <file>` | `dotfiles add <file>` | Mendaftarkan berkas config baru ke dalam pelacakan repositori |
-| `df-commit -m '...'` | `dotfiles commit -m '...'` | Menyimpan perubahan konfigurasi dalam commit baru |
-| `df-push` | `dotfiles push` | Mengunggah commit ke remote repositori (GitHub/GitLab) |
-| `df-help` / `dotfiles-help` | Fungsi bantuan | Menampilkan menu rangkuman helper dalam bahasa Indonesia |
+| `df-status` | `dotfiles status` | Check status of modified or staged dotfiles |
+| `df-diff` | `dotfiles diff` | View uncommitted changes in tracked config files |
+| `df-log` | `dotfiles log --oneline --graph --decorate -n 15` | View visual commit history graph |
+| `df-add <file>` | `dotfiles add <file>` | Stage a config file for tracking in the repository |
+| `df-commit -m '...'` | `dotfiles commit -m '...'` | Commit changes to tracked configurations |
+| `df-push` | `dotfiles push` | Upload commits to remote repository (GitHub / GitLab) |
+| `df-help` / `dotfiles-help` | Helper function | Display interactive command summary in terminal |
 
 ---
 
-## 📝 Cara Menambahkan Konfigurasi Baru ke Dotfiles
+## 📝 Tracking New Configurations in Dotfiles
 
-Jika Anda baru saja memasang aplikasi baru dan ingin konfigurasinya dilacak oleh dotfiles:
+When you install a new tool and want its configuration tracked:
 
 ```bash
-# 1. Daftarkan file konfigurasinya
-df-add ~/.config/nama_aplikasi/config.conf
+# 1. Stage the configuration file
+df-add ~/.config/app_name/config.conf
 
-# 2. Periksa status
+# 2. Verify status
 df-status
 
-# 3. Buat commit
-df-commit -m "feat: tambahkan konfigurasi nama_aplikasi"
+# 3. Create a commit
+df-commit -m "feat: track app_name configuration"
 
-# 4. (Opsional) Push ke GitHub jika remote sudah terpasang
+# 4. Push to remote repository (if configured)
 df-push
 ```
 
 ---
 
-## 💡 Cara Menambahkan Skrip Baru ke `.bashrc.d/`
+## 💡 Adding New Scripts to `.bashrc.d/`
 
-Cukup buat file baru berakhiran `.bash` di dalam folder `~/.bashrc.d/`:
+Simply create a new `.bash` file in `~/.bashrc.d/`:
 
 ```bash
-cat << 'EOF' > ~/.bashrc.d/my-custom-aliases.bash
-# Alias kustom harian
+cat << 'EOF' > ~/.bashrc.d/custom-aliases.bash
+# User aliases
 alias update='sudo dnf upgrade --refresh -y'
 alias cls='clear'
 alias ll='ls -la --color=auto'
 EOF
 ```
 
-Kemudian reload shell Anda dengan `source ~/.bashrc`.
-Skrip tersebut langsung aktif dan bisa didaftarkan ke repositori dengan `df-add ~/.bashrc.d/my-custom-aliases.bash`.
+Then reload your shell with `source ~/.bashrc`.
+The new aliases will be active immediately and can be tracked in dotfiles via `df-add ~/.bashrc.d/custom-aliases.bash`.

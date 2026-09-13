@@ -1,70 +1,70 @@
 # ⚡ Neovim (LazyVim) Configuration Guide
 
 - **Config directory**: `~/.config/nvim/`
-- **Distro / Framework**: [LazyVim](https://www.lazyvim.org/)
+- **Distribution / Framework**: [LazyVim](https://www.lazyvim.org/)
 - **Plugin Manager**: [`lazy.nvim`](https://github.com/folke/lazy.nvim)
-- **Leader Key**: `<Space>` (Spasi)
+- **Leader Key**: `<Space>`
 
 ---
 
-## 📂 Struktur Direktori Neovim
+## 📂 Neovim Directory Structure
 
 ```text
 ~/.config/nvim/
-├── init.lua                   # Titik masuk utama Neovim
-├── lazyvim.json               # Konfigurasi extras yang diaktifkan di LazyVim
-├── lazy-lock.json             # Kunci hash commit versi plugin (menjaga kestabilan)
-├── stylua.toml                # Konfigurasi formatter Lua
+├── init.lua                   # Main Neovim entry point
+├── lazyvim.json               # Configured LazyVim extras
+├── lazy-lock.json             # Precise commit hashes for all plugins (stability lock)
+├── stylua.toml                # Lua code formatter configuration
 └── lua/
     ├── config/
-    │   ├── lazy.lua           # Inisialisasi package manager lazy.nvim
-    │   ├── options.lua        # Pengaturan umum Vim (line numbers, indentasi, dll.)
-    │   ├── keymaps.lua        # Pemetaan tombol kustom Anda
-    │   └── autocmds.lua       # Event otomatisasi (mis: auto format on save)
+    │   ├── lazy.lua           # lazy.nvim package manager initialization
+    │   ├── options.lua        # General editor options (line numbers, indentation, etc.)
+    │   ├── keymaps.lua        # User custom key mappings
+    │   └── autocmds.lua       # Event autocommands (e.g. format-on-save)
     └── plugins/
-        ├── example.lua        # Contoh template penambahan/override plugin
-        └── ...                # File spesifikasi plugin kustom Anda
+        ├── example.lua        # Template for plugin overrides / custom plugins
+        └── ...                # Custom plugin specification files
 ```
 
 ---
 
-## ⌨️ Shortcut Penting LazyVim
+## ⌨️ Essential LazyVim Keybindings
 
-### 🔍 Navigasi & Pencarian File
-| Shortcut | Aksi |
+### 🔍 Navigation & File Search
+| Shortcut | Action |
 | :--- | :--- |
-| `<Space> <Space>` | Cari dan buka file (*Find Files*) |
-| `<Space> e` | Buka / tutup file explorer sidebar (*Neo-tree*) |
-| `<Space> /` | Pencarian teks secara global di seluruh project (*Live Grep*) |
-| `<Space> f b` | Cari buffer / tab yang sedang aktif (*Find Buffers*) |
-| `<Space> f r` | Buka file yang baru saja diakses (*Recent Files*) |
+| `<Space> <Space>` | Search and open files (*Find Files*) |
+| `<Space> e` | Toggle file explorer tree (*Neo-tree*) |
+| `<Space> /` | Global regex text search across workspace (*Live Grep*) |
+| `<Space> f b` | Search active open buffers (*Find Buffers*) |
+| `<Space> f r` | Browse recently opened files (*Recent Files*) |
 
-### 📑 Manajemen Buffer & Tab
-| Shortcut | Aksi |
+### 📑 Buffer & Tab Management
+| Shortcut | Action |
 | :--- | :--- |
-| `]b` | Pindah ke buffer / file berikutnya di sebelah kanan |
-| `[b` | Pindah ke buffer / file sebelumnya di sebelah kiri |
-| `<Space> b d` | Tutup buffer aktif saat ini |
-| `<Space> b o` | Tutup semua buffer lain kecuali yang aktif |
+| `]b` | Move to next buffer tab on the right |
+| `[b` | Move to previous buffer tab on the left |
+| `<Space> b d` | Close current active buffer |
+| `<Space> b o` | Close all other buffers except current |
 
-### 🛠️ Manajemen Plugin & Perkakas
-| Shortcut / Perintah | Aksi |
+### 🛠️ Plugin & Tooling Management
+| Shortcut / Command | Action |
 | :--- | :--- |
-| `<Space> l` atau `:Lazy` | Buka menu antarmuka **Lazy.nvim** (status plugin, update, log) |
-| `<Space> c m` atau `:Mason` | Buka menu antarmuka **Mason** (install LSP server, linter, formatter) |
-| `:Lazy update` | Memperbarui seluruh plugin ke commit terbaru |
-| `:Lazy sync` | Menyelaraskan plugin sesuai dengan `lazy-lock.json` |
+| `<Space> l` or `:Lazy` | Open **Lazy.nvim** UI (plugin status, updates, profiling) |
+| `<Space> c m` or `:Mason` | Open **Mason** UI (install & manage LSP servers, linters, formatters) |
+| `:Lazy update` | Update all plugins to latest available upstream commits |
+| `:Lazy sync` | Synchronize plugins with `lazy-lock.json` |
 
 ---
 
-## 🧩 Cara Menambahkan Plugin Kustom
+## 🧩 Adding Custom Plugins
 
-Untuk memasang plugin baru, cukup buat berkas baru di dalam folder `lua/plugins/`.  
-Contoh: membuat file `lua/plugins/colorscheme.lua`:
+To install or configure additional plugins, create a new Lua file in `lua/plugins/`.  
+Example: creating `lua/plugins/colorscheme.lua`:
 
 ```lua
 return {
-  -- Tambahkan tema Catppuccin
+  -- Install Catppuccin color scheme
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -73,7 +73,7 @@ return {
       flavour = "mocha",
     },
   },
-  -- Terapkan tema sebagai warna bawaan LazyVim
+  -- Configure LazyVim to load Catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
@@ -83,7 +83,7 @@ return {
 }
 ```
 
-Setelah disimpan, jalankan `:Lazy` untuk melihat instalasi otomatis. Jangan lupa simpan perubahan ke repositori dotfiles dengan:
+Once saved, open Neovim and run `:Lazy` to review automatic installation. Then commit your new configuration to dotfiles:
 ```bash
 df-add ~/.config/nvim/
 df-commit -m "feat(nvim): add catppuccin theme"

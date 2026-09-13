@@ -1,46 +1,46 @@
 # 🤖 Waydroid Helper Commands Guide
 
 - **Config file**: `~/.bashrc.d/waydroid.bash`
-- **Tujuan**: Memudahkan pengelolaan container Android (Waydroid) di desktop Wayland Linux dengan satu baris perintah.
+- **Purpose**: Convenient management of Waydroid (Android container) on Linux Wayland desktop environments using streamlined single-line commands.
 
 ---
 
-## 📋 Daftar Perintah & Alias
+## 📋 Command & Alias Reference
 
-Helper ini menyediakan nama perintah pendek (`wd-*`) maupun nama panjang (`waydroid-*`).
+Both short convenience commands (`wd-*`) and explicit names (`waydroid-*`) are available:
 
-| Perintah Pendek | Perintah Panjang | Fungsi & Penjelasan |
+| Short Command | Full Command | Description & Purpose |
 | :--- | :--- | :--- |
-| `wd-multiwin` | `waydroid-multiwin` | **Mengaktifkan Multi-Window**: Setiap aplikasi Android terbuka di jendelanya sendiri seperti aplikasi native Linux. Me-restart container secara otomatis. |
-| `wd-multiwin-off` | `waydroid-multiwin-off` | **Mematikan Multi-Window**: Menjalankan Waydroid dalam satu jendela penuh (mode single-window / tablet UI). |
-| `wd-freeze` | `waydroid-freeze` | **Membekukan Container (Suspend)**: Mem-pause seluruh proses CPU container tanpa mematikan aplikasi Android. Sangat hemat baterai saat tidak dipakai. |
-| `wd-resume` | `waydroid-resume` | **Membangunkan Container (Unfreeze)**: Melanjutkan kembali proses container secara instan dan menyambung sesi layar. |
-| `wd-session-stop` | `waydroid-session-stop` | **Tutup Sesi Aplikasi**: Menutup antarmuka grafis aplikasi, namun container background tetap berjalan di belakang layar. |
-| `wd-stop` | `waydroid-stop` | **Matikan Total**: Menghentikan sesi grafis dan container systemd secara tuntas. Mengosongkan penggunaan RAM secara maksimal. |
-| `wd-help` | `waydroid-help` | **Bantuan**: Menampilkan daftar ringkas perintah helper Waydroid ini di terminal. |
+| `wd-multiwin` | `waydroid-multiwin` | **Enable Multi-Window**: Each Android app opens in its own floating desktop window as if it were a native Linux application. Automatically restarts the container. |
+| `wd-multiwin-off` | `waydroid-multiwin-off` | **Disable Multi-Window**: Runs Waydroid within a single consolidated tablet-style window. |
+| `wd-freeze` | `waydroid-freeze` | **Freeze / Suspend Container**: Pauses all container CPU processes without closing Android apps. Great for conserving battery life when stepping away. |
+| `wd-resume` | `waydroid-resume` | **Resume / Unfreeze Container**: Instantly unfreezes container processes and resumes active screen sessions. |
+| `wd-session-stop` | `waydroid-session-stop` | **Stop App Session**: Closes graphical app windows while keeping background container services running. |
+| `wd-stop` | `waydroid-stop` | **Full Stop**: Completely terminates both GUI sessions and the systemd container. Maximizes available system RAM. |
+| `wd-help` | `waydroid-help` | **Help Menu**: Displays a quick summary of Waydroid commands directly in your terminal. |
 
 ---
 
-## 🎯 Contoh Skenario Penggunaan
+## 🎯 Common Workflow Scenarios
 
-### 1. Ingin menjalankan aplikasi Android berdampingan dengan browser & terminal
-Cukup jalankan:
+### 1. Running Android apps alongside browser & terminal windows
+Run:
 ```bash
 wd-multiwin
 ```
-Lalu buka aplikasi Android Anda (misal: WhatsApp, Telegram Android, atau game) dari menu aplikasi desktop.
+Then launch Android apps from your desktop application launcher.
 
-### 2. Ingin menghemat baterai saat jeda istirahat
-Daripada mematikan total dan harus menunggu boot ulang aplikasi:
+### 2. Conserving laptop battery during a break
+Rather than shutting down completely and waiting for cold boot:
 ```bash
 wd-freeze
 ```
-Ketika ingin melanjutkan kembali:
+When you return:
 ```bash
 wd-resume
 ```
 
-### 3. Selesai menggunakan Waydroid dan ingin RAM laptop kembali lega
+### 3. Done using Android apps and want all RAM freed
 ```bash
 wd-stop
 ```
