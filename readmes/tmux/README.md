@@ -34,18 +34,7 @@ Plugins are managed via **TPM (Tmux Plugin Manager)**.
 
 ---
 
-### 3. `tmux-plugins/tmux-yank`
-- **Purpose**: Seamless integration between Tmux copy mode and the system clipboard (Wayland via `wl-copy`, X11 via `xsel`).
-- **Benefit**: Text copied within Tmux can immediately be pasted into any external desktop application (browser, IDE, text documents) using `Ctrl+v`.
-- **How to Use**:
-  1. Enter copy mode: Press `Ctrl-a` then `[` (or click and drag with your mouse).
-  2. Start text selection (keyboard): Press `v`.
-  3. Copy to system clipboard: Press `y`.
-  4. Line or block selection: Press `V` for full line selection, or `Ctrl-v` for rectangular block selection.
-
----
-
-### 4. `tmux-plugins/tmux-resurrect`
+### 3. `tmux-plugins/tmux-resurrect`
 - **Purpose**: Saves and restores your complete Tmux environment across system reboots, terminal restarts, or unexpected disconnects.
 - **What is Restored**:
   - All session names, windows, and pane splits.
@@ -61,7 +50,7 @@ Plugins are managed via **TPM (Tmux Plugin Manager)**.
 
 ---
 
-### 5. `tmux-plugins/tmux-continuum`
+### 4. `tmux-plugins/tmux-continuum`
 - **Purpose**: Full automation on top of `tmux-resurrect` so you never have to remember to manually save.
 - **Active Settings**:
   - `@continuum-save-interval '15'`: Automatically saves your entire Tmux state every **15 minutes**.

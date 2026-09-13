@@ -9,7 +9,7 @@ Each component features a dedicated guide detailing its architecture, installed 
 
 | Component | Guide Location | Summary |
 | :--- | :--- | :--- |
-| **🪟 Tmux** | [`readmes/tmux/README.md`](tmux/README.md) | Tmux config, TPM plugins (sensible, yank, resurrect, continuum), clipboard integration, and full shortcut reference |
+| **🪟 Tmux** | [`readmes/tmux/README.md`](tmux/README.md) | Tmux config, TPM plugins (sensible, resurrect, continuum), and full shortcut reference |
 | **🐚 Bash & Helpers** | [`readmes/bash/README.md`](bash/README.md) | Modular `.bashrc.d/` layout, `dotfiles` command, tab autocompletions, `df-*` aliases, and adding new scripts |
 | **🤖 Waydroid** | [`readmes/waydroid/README.md`](waydroid/README.md) | Android container helpers (`wd-multiwin`, `wd-freeze`, `wd-resume`, `wd-stop`) on Wayland |
 | **💻 Alacritty** | [`readmes/alacritty/README.md`](alacritty/README.md) | JetBrainsMono Nerd Font setup, maximized window mode, opacity, padding, and Catppuccin color scheme |

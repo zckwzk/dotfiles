@@ -22,7 +22,7 @@ No symlink clutter, no external dotfile manager required—native Git tracking d
 
 Detailed guides, plugin lists, and shortcut references for each tool are organized inside the [`readmes/`](readmes/README.md) folder:
 
-- 🪟 **[Tmux Guide & Plugins](readmes/tmux/README.md)**: Plugins overview (TPM, sensible, yank, resurrect, continuum), clipboard integration, and full keybinding reference.
+- 🪟 **[Tmux Guide & Plugins](readmes/tmux/README.md)**: Plugins overview (TPM, sensible, resurrect, continuum), and full keybinding reference.
 - 🐚 **[Bash & Dotfiles Helpers](readmes/bash/README.md)**: Modular `.bashrc.d/` architecture, `dotfiles` command, shortcuts (`df-*`), and shell autocompletion.
 - 🤖 **[Waydroid Helpers](readmes/waydroid/README.md)**: Quick commands (`wd-multiwin`, `wd-freeze`, `wd-resume`, `wd-stop`) for running Android apps on Linux.
 - 💻 **[Alacritty Terminal](readmes/alacritty/README.md)**: JetBrainsMono Nerd Font setup, maximized window mode, opacity, and Catppuccin color scheme.
