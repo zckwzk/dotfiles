@@ -18,6 +18,18 @@ No symlink clutter, no external dotfile manager required—native Git tracking d
 
 ---
 
+## 📚 Component Documentation (`readmes/`)
+
+Detailed guides, plugin lists, and shortcut references for each tool are organized inside the [`readmes/`](readmes/README.md) folder:
+
+- 🪟 **[Tmux Guide & Plugins](readmes/tmux/README.md)**: Plugins overview (TPM, sensible, yank, resurrect, continuum), clipboard integration, and full keybinding reference.
+- 🐚 **[Bash & Dotfiles Helpers](readmes/bash/README.md)**: Modular `.bashrc.d/` architecture, `dotfiles` command, shortcuts (`df-*`), and shell autocompletion.
+- 🤖 **[Waydroid Helpers](readmes/waydroid/README.md)**: Quick commands (`wd-multiwin`, `wd-freeze`, `wd-resume`, `wd-stop`) for running Android apps on Linux.
+- 💻 **[Alacritty Terminal](readmes/alacritty/README.md)**: JetBrainsMono Nerd Font setup, maximized window mode, opacity, and Catppuccin color scheme.
+- ⚡ **[Neovim (LazyVim)](readmes/neovim/README.md)**: LazyVim directory structure, file navigation, buffer shortcuts, Mason LSP manager, and adding custom plugins.
+
+---
+
 ## 🚀 Daily Workflow Commands
 
 Thanks to `~/.bashrc.d/dotfiles.bash`, you can use standard git operations via the `dotfiles` command or quick aliases:
