@@ -12,7 +12,7 @@ No symlink clutter, no external dotfile manager required—native Git tracking d
 | **Bash** | `~/.bashrc`, `~/.bash_profile` | Shell startup scripts, automatic loading of `~/.bashrc.d/*` |
 | **Dotfiles Helpers** | `~/.bashrc.d/dotfiles.bash` | `dotfiles` command, bash git completions, helper aliases & help menu |
 | **Waydroid** | `~/.bashrc.d/waydroid.bash` | Fast Android container helpers (`wd-multiwin`, `wd-stop`, etc.) |
-| **Tmux** | `~/.tmux.conf` | `Ctrl-a` prefix, 1-based indexing, vim navigation (`h,j,k,l`), TrueColor, Catppuccin theme |
+| **Tmux** | `~/.tmux.conf` | `Ctrl-a` prefix, 1-based indexing, vim nav (`h,j,k,l`), TrueColor, Catppuccin theme, TPM plugins |
 | **Terminal** | `~/.config/alacritty/alacritty.toml` | Alacritty terminal with JetBrainsMono Nerd Font & maximized start |
 | **Neovim** | `~/.config/nvim/` | Full LazyVim IDE setup with plugins, keymaps, options, and lockfile |
 
