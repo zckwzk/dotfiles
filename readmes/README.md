@@ -15,6 +15,7 @@ Each component features a dedicated guide detailing its architecture, installed 
 | **💻 Alacritty** | [`readmes/alacritty/README.md`](alacritty/README.md) | JetBrainsMono Nerd Font setup, maximized window mode, opacity, padding, and Catppuccin color scheme |
 | **⚡ Neovim (LazyVim)** | [`readmes/neovim/README.md`](neovim/README.md) | LazyVim directory structure, file navigation, buffer shortcuts, Mason LSP manager, and adding custom plugins |
 
+
 ---
 
 ## 💡 Quick Terminal Access
